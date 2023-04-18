@@ -40,12 +40,9 @@ document.addEventListener('keypress', handleEnter)
 function openCookie() {
   screenToggle()
   document.querySelector(".fortune p").innerText = fortunePhrases[item]
-
-  console.log(item)
 }
 
 function cookieReset(e) {
-  // e.preventDefault()
   screenToggle()
   item = Math.round(Math.random() * (fortunePhrases.length - 1))
 }
@@ -56,7 +53,9 @@ function screenToggle() {
 }
 
 function handleEnter(event) {
- if(event.key == 'Enter' && screen1.classList.contains("hide")) {
-    cookieReset()
- }
+ if(event.key == 'Enter' && screen2.classList.contains("hide")) {
+  openCookie()
+ } else if(event.key == 'Enter' && screen1.classList.contains("hide")) {
+  cookieReset()
+} 
 }
